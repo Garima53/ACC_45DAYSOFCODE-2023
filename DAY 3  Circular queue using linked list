@@ -1,0 +1,85 @@
+#include<iostream> 
+using namespace std; 
+  
+struct Node { 
+    int data; 
+    Node* next; 
+}; 
+  
+class Queue { 
+    Node *front, *rear; 
+  
+public: 
+    Queue() 
+    { 
+        front = rear = NULL; 
+    } 
+  
+    void enQueue(int x); 
+    int deQueue(); 
+    void displayQueue(); 
+}; 
+  
+void Queue::enQueue(int x) 
+{ 
+    Node* temp = new Node(); 
+    temp->data = x; 
+    temp->next = NULL; 
+    if (front == NULL) 
+        front = rear = temp; 
+    else { 
+        rear->next = temp; 
+        rear = temp; 
+    } 
+    rear->next = front; 
+} 
+  
+int Queue::deQueue() 
+{ 
+    if (front == NULL) { 
+        cout << "Queue is Empty"; 
+        return 0; 
+    } 
+    int value; 
+    if (front == rear) { 
+        value = front->data; 
+        front = rear = NULL; 
+    } 
+    else { 
+        Node* temp = front; 
+        value = temp->data; 
+        front = front->next; 
+        rear->next = front; 
+        delete temp; 
+    } 
+    return value; 
+} 
+  
+void Queue::displayQueue() 
+{ 
+    Node* temp = front; 
+    cout << "Elements in Circular Queue are: "; 
+    while (temp->next != front) { 
+        cout << temp->data << " "; 
+        temp = temp->next; 
+    } 
+    cout << temp->data << endl; 
+} 
+  
+
+int main() 
+{ 
+    Queue q; 
+    q.enQueue(14); 
+    q.enQueue(22); 
+    q.enQueue(13); 
+    q.enQueue(-6); 
+    q.displayQueue(); 
+    cout << "Deleted value = " << q.deQueue() << endl; 
+    cout << "Deleted value = " << q.deQueue() << endl; 
+    q.displayQueue(); 
+    q.enQueue(9); 
+    q.enQueue(20); 
+    q.displayQueue(); 
+    return 0; 
+}
