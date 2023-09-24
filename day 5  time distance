@@ -1,0 +1,119 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string>
+using namespace std;
+void time(){
+  
+    int h1,m1,s1;
+    
+    int h2,m2,s2;
+    
+    int hour,minute,second;
+    cout<<"*Enter first time*"<<endl;
+    cout<<"Hours: "; cin>>h1;
+    cout<<"Minutes: "; cin>>m1;
+    cout<<"Seconds: "; cin>>s1;
+
+    cout<<"*Enter second time*"<<endl;
+    cout<<"Hours: "; cin>>h2;
+    cout<<"Minutes: "; cin>>m2;
+    cout<<"Seconds: "; cin>>s2;
+
+    second=s1+s2;
+    minute=m1+m2+(second/60);
+    hour=h1+h2+(minute/60);
+    minute=minute%60;
+    second=second%60;
+
+    cout<<"Total Time is: "<<hour<<" hours "<<minute<<" minutes "<<second<< " seconds"<<endl;
+}
+void distance(){
+    int i1,f1;
+    int i2,f2;
+    int feet,inch;
+    
+    cout<<"enter 1 distance in feet-inch:";
+    cin>>f1>>i1;
+   
+    cout<<"enter 2 distance feet-inch:";
+    cin>>f2>>i2;
+    inch = (i1+i2)%12;
+    feet  = (f1+f2) + (i1+i2)/12;
+    cout<<"total distance:"<<feet<<" feet "<<inch<<" inch"<<endl;
+
+}
+void student_details(){
+    struct stud{
+        string name;
+        string rollno;
+        string course;
+        int sem;
+        string sec;
+    };
+    stud s;
+    cout <<endl<< "Enter name of student: ";
+    cin>>s.name;
+    cout << "Enter rollno of student: ";
+    cin >> s.rollno;
+    cout << "Enter course: ";
+    cin >> s.course;
+    cout<<"Enter Semester: ";
+    cin>> s.sem;
+    cout<<"Enter Section: ";
+    cin>>s.sec;
+     
+    cout << "\n** Student Details **" << endl;
+    cout << "Name : " << s.name << endl;
+    cout << "Roll No. : " << s.rollno << endl;
+    cout << "Course : " << s.course<<endl;
+    cout << "Semester : " << s.sem<<endl;
+    cout << "Section: " << s.sec<<endl;
+    
+}
+
+void book_details(){
+struct Book {
+    string name;
+    int price;
+    int ISBN;
+};
+  Book b;
+    cout <<endl<< "Enter name of book\n";
+    cin>>b.name;
+    cout << "Enter price of book\n";
+    cin >> b.price;
+    cout << "Enter ISBN code\n";
+    cin >> b.ISBN;
+     
+    cout << "\n** Book Details **" << endl;
+    cout << "Name : " << b.name << endl;
+    cout << "Price : " << b.price << endl;
+    cout << "ISBN Code : " << b.ISBN<<endl;
+}
+int main()
+{
+   while(1){
+    cout<<"list of operation:"<<endl;
+    cout<<"1.addition of two time."<<endl;
+    cout<<"2.addition of 2 distance."<<endl;
+    cout<<"3.program for students detail."<<endl;
+    cout<<"4. program for book detail."<<endl;
+    cout<<"5.exit"<<endl;
+    int n;
+    cout<<"enter your choice:";
+    cin>>n;
+    switch(n){
+        case 1:time();
+        break;
+        case 2: distance();
+        break;
+        case 3: student_details();
+        break;
+        case 4: book_details();
+        break;
+        case 5:
+        cout<<"program exited";
+        exit(0);
+    }
+    }
+}
