@@ -1,0 +1,79 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+ int Top=-1,Stack[10],x,n;
+void push(){
+    if(Top==9){
+        cout<<"stack is overflow"<<endl;
+    }
+    else
+    { 
+        cout<<"enter the value"<<endl;
+        cin>>x;
+        Top++;
+        Stack[Top]=x;
+    }
+}
+void pop(){
+    if(Top== -1){
+        cout<<"stack is underflow"<<endl;}
+        else
+        { 
+            cout<<Stack[Top];
+            Top--;
+        }
+    }
+
+void peak(){
+    if(Top== -1){
+        cout<<"stack is underflow"<<endl;
+
+    }
+    else{
+        cout<<Stack[Top];
+    }
+}
+void Display(){
+    if(Top== -1){
+        cout<<"stack underflow"<<endl;
+    }
+    else{
+        int i;
+        for(i=Top;i>=0;i--)
+        {
+            cout<<Stack[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
+int main (){ 
+    cout<<endl<<"below the choices are given"<<endl;
+    cout<<"1. push"<<endl;
+    cout<<"2. Pop"<<endl;
+    cout<<"3. peak"<<endl;
+    cout<<"4. display"<<endl;
+    cout<<"5. exit"<<endl;
+    while(1){
+        cout<<"Enter your choice:";
+        cin>>n;
+        switch(n)
+        {
+            case 1:
+            push();
+            break;
+            case 2:
+            pop();
+            break;
+            case 3:
+            peak();
+            break;
+            case 4:
+            Display();
+            break;
+            case 5:
+            cout<<"exit";
+            exit(0);
+        }
+    }
+return 0;
+}
