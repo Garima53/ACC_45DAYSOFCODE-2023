@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int ex[5],e[5],at[5],ct[5],rt[5],tat[5],wt[5],p[5];
+    int swt=0,srt=0,stat=0,ts;
+    float awt,art,atat;
+    cout<<"enter time slice:";
+    cin>>ts;
+    cout<<"enter the execution time and arrival time of 4 process.";
+    for(int i=0;i<5;i++)
+    {
+        cin>>ex[i]>>at[i];
+        p[i]=i;
+    }
+     ct[0]=0;
+    cout<"<p \t ex \t at \t ct\t rt \t tat \t wt"<<endl;
+    for(int i=0;i<5;i++)
+    { 
+        ct[i]+=ex[i];
+        rt[i]=ct[i]-ex[i];
+        tat[i]=ct[i]-at[i];
+        wt[i]=tat[i]-ex[i];
+        swt+=wt[i];
+        srt+=rt[i];
+        stat+=tat[i];
+        cout<<p[i]<<"\t"<<ex[i]<<"\t"<<at[i]<<"\t "<<ct[i]<<"\t "<<rt[i]<<"\t "<<tat[i]<<"\t "<<wt[i]<<endl;
+        ct[i+1]=ct[i];
+    }
+}
